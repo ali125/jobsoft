@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
     marginTop: SIZES.small,
     marginBottom: SIZES.small / 2,
   },
-  btn: (name, activeTab) => ({
+  btn: ((name: string, activeTab: string) => ({
     paddingVertical: SIZES.medium,
     paddingHorizontal: SIZES.xLarge,
     backgroundColor: name === activeTab ? COLORS.primary : "#F3F4F8",
@@ -15,12 +15,12 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     ...SHADOWS.medium,
     shadowColor: COLORS.white,
-  }),
-  btnText: (name, activeTab) => ({
+  })) as any,
+  btnText: ((name: string, activeTab: string) => ({
     fontFamily: "DMMedium",
     fontSize: SIZES.small,
     color: name === activeTab ? "#C3BFCC" : "#AAA9B8",
-  }),
+  })) as any,
 });
 
 export default styles;
