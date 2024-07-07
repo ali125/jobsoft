@@ -14,9 +14,17 @@ import { icons, SIZES } from "@/constants";
 
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
 
-type Props = {};
+type Props = {
+  searchTerm: string;
+  setSearchTerm: (searchTerm: string) => void;
+  handleClick: () => void;
+};
 
-const Welcome: React.FC<Props> = () => {
+const Welcome: React.FC<Props> = ({
+  searchTerm,
+  setSearchTerm,
+  handleClick,
+}) => {
   const [activeJobType, setActiveJobType] = useState<string>(jobTypes[0]);
   const router = useRouter();
   return (
@@ -30,13 +38,13 @@ const Welcome: React.FC<Props> = () => {
         <View style={styles.searchWrapper}>
           <TextInput
             style={styles.searchInput}
-            value=""
+            value={searchTerm}
             placeholder="What are you looking for?"
-            onChange={() => {}}
+            onChangeText={(text) => setSearchTerm(text)}
           />
         </View>
 
-        <TouchableOpacity style={styles.searchBtn} onPress={() => {}}>
+        <TouchableOpacity style={styles.searchBtn} onPress={handleClick}>
           <Image
             source={icons.search}
             resizeMode="contain"
