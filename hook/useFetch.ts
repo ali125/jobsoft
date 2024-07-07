@@ -6,7 +6,7 @@ type UseFetchResponse = {
   data: any;
   error: string | null;
   isLoading: boolean;
-  refetch: () => void;
+  refetch: any;
 };
 
 type UseFetch = (
@@ -55,8 +55,8 @@ const useFetch: UseFetch = (endpoint, query) => {
     fetchData();
   }, []);
 
-  const refetch = () => {
-    fetchData();
+  const refetch = async () => {
+    await fetchData();
   };
 
   return { data, error, isLoading, refetch };

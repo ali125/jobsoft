@@ -26,7 +26,11 @@ const JobDetails = () => {
     job_id: params.id,
   });
 
-  const onRefresh = () => {};
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await refetch();
+    setRefreshing(false);
+  }, []);
 
   const displayTabContent = useCallback(() => {
     switch (activeTab) {
